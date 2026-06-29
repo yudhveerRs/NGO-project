@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hope & Help Foundation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #139a43;
+      --green-dark: #073d20;
+      --green-soft: #e9f8ef;
+      --ink: #1d2a26;
+      --muted: #6b7b75;
+      --gold: #f3a712;
+      --rose: #f35f87;
+      --sky: #2f9ee8;
+      --shadow: 0 22px 60px rgba(9, 51, 28, .13);
+    }
+
+    * {
+      letter-spacing: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    .serif {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      min-height: 74px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 10px 30px rgba(12, 43, 26, .08);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--green), #31bc60);
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(19, 154, 67, .28);
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--green-dark);
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 3px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      position: relative;
+      color: #263832;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 15px !important;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      bottom: 7px;
+      height: 2px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--green);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      transform: scaleX(1);
+    }
+
+    .btn-premium {
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 13px 25px;
+      background: linear-gradient(135deg, var(--green), #28b957);
+      box-shadow: 0 14px 28px rgba(19, 154, 67, .28);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .btn-premium:hover {
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 35px rgba(19, 154, 67, .34);
+    }
+
+    .btn-outline-premium {
+      border: 1px solid rgba(255, 255, 255, .62);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(10px);
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .btn-outline-premium:hover {
+      color: var(--green-dark);
+      background: #fff;
+      transform: translateY(-3px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(3, 20, 12, .92), rgba(3, 20, 12, .63) 42%, rgba(3, 20, 12, .12) 100%),
+        url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1900&q=85") center / cover;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 22% 35%, rgba(41, 190, 92, .22), transparent 31%);
+      animation: breathe 7s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 130px 0 170px;
+      max-width: 690px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: #48df7b;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::after {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .hero h1 {
+      margin-bottom: 22px;
+      font-size: clamp(45px, 6vw, 76px);
+      font-weight: 800;
+      line-height: 1.03;
+    }
+
+    .text-green {
+      color: #2fcd63 !important;
+    }
+
+    .hero p {
+      max-width: 550px;
+      color: rgba(255, 255, 255, .83);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .floating-points {
+      position: relative;
+      z-index: 2;
+      margin-top: -70px;
+    }
+
+    .feature-strip {
+      border: 1px solid rgba(18, 87, 47, .08);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .feature-item {
+      min-height: 118px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 28px 25px;
+      border-right: 1px solid #edf2ef;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .feature-item:hover {
+      background: #fbfffc;
+      transform: translateY(-6px);
+    }
+
+    .feature-item:last-child {
+      border-right: 0;
+    }
+
+    .icon-bubble {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 25px;
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .icon-rose {
+      color: var(--rose);
+      background: #ffedf3;
+    }
+
+    .icon-gold {
+      color: var(--gold);
+      background: #fff5d9;
+    }
+
+    .icon-sky {
+      color: var(--sky);
+      background: #eaf6ff;
+    }
+
+    .feature-item h5 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .feature-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-title .eyebrow {
+      margin-bottom: 10px;
+      color: var(--green);
+      font-size: 12px;
+      justify-content: center;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: #1e2925;
+      font-size: clamp(33px, 4vw, 48px);
+      font-weight: 800;
+    }
+
+    .section-title .mini-line {
+      width: 34px;
+      height: 3px;
+      margin: 18px auto 0;
+      background: var(--green);
+      border-radius: 999px;
+    }
+
+    .about-img {
+      position: relative;
+      min-height: 420px;
+      border-radius: 18px;
+      background: url("https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=85") center / cover;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .about-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(0, 0, 0, .2));
+    }
+
+    .about-list {
+      display: grid;
+      gap: 14px;
+      margin: 26px 0 32px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: #35473f;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .about-list i {
+      color: var(--green);
+    }
+
+    .stat-card {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      left: 22px;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .15);
+      box-shadow: 0 22px 50px rgba(3, 46, 21, .28);
+    }
+
+    .mini-stat {
+      padding: 23px 15px;
+      color: #fff;
+      text-align: center;
+      background: rgba(19, 154, 67, .91);
+      backdrop-filter: blur(12px);
+    }
+
+    .mini-stat i {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 22px;
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .mini-stat span {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      opacity: .88;
+    }
+
+    .soft-bg {
+      background: linear-gradient(180deg, #fff, #f5fbf7);
+    }
+
+    .program-card,
+    .story-card,
+    .action-card,
+    .news-card {
+      border: 1px solid rgba(16, 80, 42, .08);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(15, 61, 34, .08);
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .program-card:hover,
+    .story-card:hover,
+    .action-card:hover,
+    .news-card:hover {
+      transform: translateY(-9px);
+      box-shadow: 0 25px 55px rgba(15, 61, 34, .14);
+    }
+
+    .program-img,
+    .news-img {
+      position: relative;
+      height: 205px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .program-icon {
+      position: absolute;
+      left: 24px;
+      bottom: -26px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 13px;
+      background: var(--green);
+      font-size: 26px;
+      box-shadow: 0 13px 30px rgba(0, 0, 0, .18);
+    }
+
+    .program-body {
+      padding: 43px 25px 26px;
+    }
+
+    .program-body h3 {
+      margin-bottom: 12px;
+      font-family: Inter, sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .muted-copy {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    .link-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .impact {
+      position: relative;
+      color: #fff;
+      background:
+        linear-gradient(rgba(2, 35, 17, .9), rgba(2, 35, 17, .9)),
+        url("https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1800&q=85") center / cover fixed;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 42px;
+      border-top: 1px solid rgba(255, 255, 255, .15);
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .impact-item {
+      padding: 30px 18px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .impact-item:last-child {
+      border-right: 0;
+    }
+
+    .impact-item i {
+      color: #37d36b;
+      font-size: 27px;
+    }
+
+    .impact-item strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 31px;
+      line-height: 1;
+    }
+
+    .impact-label {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .story-card {
+      padding: 34px;
+    }
+
+    .quote-mark {
+      color: #55c878;
+      font-size: 33px;
+      line-height: 1;
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .cta-band {
+      position: relative;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(8, 103, 47, .94), rgba(16, 137, 58, .86)),
+        url("https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1800&q=85") center / cover;
+      overflow: hidden;
+    }
+
+    .action-card {
+      min-height: 205px;
+      padding: 35px 26px;
+      text-align: center;
+    }
+
+    .action-card .icon-bubble {
+      margin: 0 auto 18px;
+    }
+
+    .action-card h4 {
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .news-card .badge {
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: var(--green) !important;
+    }
+
+    .news-body {
+      padding: 24px;
+    }
+
+    .news-body h3 {
+      font-family: Inter, sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .partner-logo {
+      min-height: 78px;
+      display: grid;
+      place-items: center;
+      border-right: 1px solid #edf2ef;
+      color: #658079;
+      font-size: 25px;
+      font-weight: 900;
+      filter: grayscale(.1);
+    }
+
+    .partner-logo:last-child {
+      border-right: 0;
+    }
+
+    footer {
+      color: rgba(255, 255, 255, .74);
+      background: #07331b;
+      padding: 70px 0 22px;
+    }
+
+    footer h5 {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    footer ul {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .social a {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      margin-right: 8px;
+      color: #fff;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      transition: background .25s ease, transform .25s ease;
+    }
+
+    .social a:hover {
+      background: var(--green);
+      transform: translateY(-3px);
+    }
+
+    .newsletter {
+      display: flex;
+      gap: 9px;
+    }
+
+    .newsletter input {
+      min-width: 0;
+      border: 0;
+      border-radius: 9px;
+      padding: 12px 13px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: .1s;
+    }
+
+    .delay-2 {
+      transition-delay: .2s;
+    }
+
+    .delay-3 {
+      transition-delay: .3s;
+    }
+
+    @keyframes breathe {
+      0%,
+      100% {
+        opacity: .55;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .9;
+        transform: scale(1.08);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 115px 0 140px;
+      }
+
+      .feature-item {
+        border-right: 0;
+        border-bottom: 1px solid #edf2ef;
+      }
+
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-item {
+        border-bottom: 1px solid rgba(255, 255, 255, .15);
+      }
+
+      .stat-card {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 575px) {
+      .navbar {
+        min-height: 66px;
+      }
+
+      .brand-title {
+        font-size: 16px;
+      }
+
+      .hero-content {
+        padding: 105px 0 120px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .floating-points {
+        margin-top: -45px;
+      }
+
+      .about-img {
+        min-height: 520px;
+      }
+
+      .stat-card {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-logo {
+        border-right: 0;
+        border-bottom: 1px solid #edf2ef;
+      }
+
+      .newsletter {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+        <span class="brand-mark"><i class="bi bi-heart-pulse-fill"></i></span>
+        <span>
+          <span class="brand-title">Hope & Help</span>
+          <span class="brand-subtitle">Foundation</span>
+        </span>
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#causes">Our Causes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a href="#donate" class="btn btn-premium">Donate Now <i class="bi bi-heart-fill ms-2"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow reveal visible">Together for a better tomorrow</span>
+        <h1 class="reveal visible delay-1">Together We Can Make a <span class="text-green">Difference</span></h1>
+        <p class="reveal visible delay-2">We are committed to creating a positive change in the lives of underprivileged communities through education, healthcare, and sustainable development.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4 reveal visible delay-3">
+          <a href="#donate" class="btn btn-premium">Donate Now <i class="bi bi-heart-fill ms-2"></i></a>
+          <a href="#programs" class="btn btn-outline-premium">Explore Our Programs <i class="bi bi-chevron-right ms-2"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="floating-points">
+    <div class="container">
+      <div class="feature-strip row g-0 reveal">
+        <div class="col-lg-3 col-md-6 feature-item">
+          <span class="icon-bubble"><i class="bi bi-mortarboard"></i></span>
+          <div>
+            <h5>Education</h5>
+            <p>Providing quality education to underprivileged children.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 feature-item">
+          <span class="icon-bubble icon-rose"><i class="bi bi-heart"></i></span>
+          <div>
+            <h5>Healthcare</h5>
+            <p>Improving access to healthcare and promoting well-being.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 feature-item">
+          <span class="icon-bubble icon-gold"><i class="bi bi-leaf"></i></span>
+          <div>
+            <h5>Environment</h5>
+            <p>Working for a sustainable environment for a better future.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 feature-item">
+          <span class="icon-bubble icon-sky"><i class="bi bi-people"></i></span>
+          <div>
+            <h5>Community</h5>
+            <p>Empowering communities for a stronger tomorrow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 reveal">
+          <span class="eyebrow">About Us</span>
+          <h2 class="serif display-5 fw-bold mb-4">We Are Here to Help and <span class="text-green">Empower Communities</span></h2>
+          <p class="muted-copy">Hope & Help Foundation is a non-profit organization dedicated to improving the lives of underprivileged individuals and communities. We believe in creating opportunities, spreading hope, and building a better tomorrow for all.</p>
+          <ul class="about-list">
+            <li><i class="bi bi-check-circle-fill"></i>Transparency & Accountability</li>
+            <li><i class="bi bi-check-circle-fill"></i>Sustainable Impact</li>
+            <li><i class="bi bi-check-circle-fill"></i>Community Driven</li>
+          </ul>
+          <a href="#contact" class="btn btn-premium">Learn More About Us <i class="bi bi-chevron-right ms-2"></i></a>
+        </div>
+        <div class="col-lg-7 reveal delay-1">
+          <div class="about-img">
+            <div class="stat-card">
+              <div class="mini-stat"><i class="bi bi-award"></i><strong>10+</strong><span>Years of Service</span></div>
+              <div class="mini-stat"><i class="bi bi-link-45deg"></i><strong>50+</strong><span>Projects Completed</span></div>
+              <div class="mini-stat"><i class="bi bi-heart"></i><strong>25K+</strong><span>Lives Impacted</span></div>
+              <div class="mini-stat"><i class="bi bi-people"></i><strong>100+</strong><span>Volunteers</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft-bg" id="programs">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Our Programs</span>
+        <h2>What We Do</h2>
+        <div class="mini-line"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 reveal">
+          <article class="program-card h-100">
+            <div class="program-img" style="background-image:url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=700&q=85');">
+              <span class="program-icon"><i class="bi bi-mortarboard"></i></span>
+            </div>
+            <div class="program-body">
+              <h3>Education for All</h3>
+              <p class="muted-copy">We provide quality education and learning resources to children in need.</p>
+              <a class="link-green" href="#">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal delay-1">
+          <article class="program-card h-100">
+            <div class="program-img" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=85');">
+              <span class="program-icon" style="background:#ec5b81;"><i class="bi bi-heart-pulse"></i></span>
+            </div>
+            <div class="program-body">
+              <h3>Healthcare Support</h3>
+              <p class="muted-copy">Supporting healthcare initiatives and providing medical aid to underserved communities.</p>
+              <a class="link-green" href="#">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal delay-2">
+          <article class="program-card h-100">
+            <div class="program-img" style="background-image:url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=700&q=85');">
+              <span class="program-icon" style="background:#f3a712;"><i class="bi bi-leaf"></i></span>
+            </div>
+            <div class="program-body">
+              <h3>Environmental Care</h3>
+              <p class="muted-copy">Promoting sustainability by planting trees and spreading environmental awareness.</p>
+              <a class="link-green" href="#">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal delay-3">
+          <article class="program-card h-100">
+            <div class="program-img" style="background-image:url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=700&q=85');">
+              <span class="program-icon" style="background:#2f9ee8;"><i class="bi bi-people"></i></span>
+            </div>
+            <div class="program-body">
+              <h3>Community Development</h3>
+              <p class="muted-copy">Empowering communities through skill training and livelihood programs.</p>
+              <a class="link-green" href="#">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact" id="impact">
+    <div class="container">
+      <div class="section-title reveal mb-0">
+        <span class="eyebrow">Our Impact</span>
+        <h2 class="text-white">Creating Real Impact</h2>
+        <div class="mini-line"></div>
+      </div>
+      <div class="impact-grid reveal delay-1">
+        <div class="impact-item"><i class="bi bi-heart"></i><strong><span class="counter" data-target="25">0</span>K+</strong><span class="impact-label">Lives Impacted</span></div>
+        <div class="impact-item"><i class="bi bi-house-heart"></i><strong><span class="counter" data-target="150">0</span>+</strong><span class="impact-label">Villages Reached</span></div>
+        <div class="impact-item"><i class="bi bi-people"></i><strong><span class="counter" data-target="300">0</span>+</strong><span class="impact-label">Volunteers</span></div>
+        <div class="impact-item"><i class="bi bi-tree"></i><strong><span class="counter" data-target="1">0</span>M+</strong><span class="impact-label">Trees Planted</span></div>
+        <div class="impact-item"><i class="bi bi-patch-check"></i><strong><span class="counter" data-target="98">0</span>%</strong><span class="impact-label">Funds Transparency</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft-bg" id="causes">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Success Stories</span>
+        <h2>Stories of Change</h2>
+        <div class="mini-line"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 reveal">
+          <div class="story-card h-100">
+            <div class="quote-mark"><i class="bi bi-quote"></i></div>
+            <p class="muted-copy">The support from Hope & Help Foundation changed my life. I got the education I always dreamed of.</p>
+            <div class="d-flex align-items-center gap-3 mt-4">
+              <img class="avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=120&q=80" alt="Ravi Kumar">
+              <div><strong>Ravi Kumar</strong><br><span class="text-muted small">Student</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal delay-1">
+          <div class="story-card h-100">
+            <div class="quote-mark"><i class="bi bi-quote"></i></div>
+            <p class="muted-copy">Thanks to their healthcare support, my family received the treatment we could not afford.</p>
+            <div class="d-flex align-items-center gap-3 mt-4">
+              <img class="avatar" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=120&q=80" alt="Sita Devi">
+              <div><strong>Sita Devi</strong><br><span class="text-muted small">Beneficiary</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal delay-2">
+          <div class="story-card h-100">
+            <div class="quote-mark"><i class="bi bi-quote"></i></div>
+            <p class="muted-copy">The skills training program helped me become independent and support my family.</p>
+            <div class="d-flex align-items-center gap-3 mt-4">
+              <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Anita Sharma">
+              <div><strong>Anita Sharma</strong><br><span class="text-muted small">Entrepreneur</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="donate">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-4 reveal">
+          <span class="eyebrow">Get Involved</span>
+          <h2 class="serif display-5 fw-bold">Be the Reason for Someone's Smile</h2>
+          <p class="mt-3 mb-0">Join us as a volunteer, donor, or partner and help us build a better tomorrow.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="row g-4">
+            <div class="col-md-4 reveal delay-1">
+              <div class="action-card">
+                <span class="icon-bubble"><i class="bi bi-hearts"></i></span>
+                <h4>Donate</h4>
+                <p class="muted-copy">Your donation can change a life.</p>
+                <a class="link-green" href="#">Donate Now <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="col-md-4 reveal delay-2">
+              <div class="action-card">
+                <span class="icon-bubble icon-gold"><i class="bi bi-person-raised-hand"></i></span>
+                <h4>Volunteer</h4>
+                <p class="muted-copy">Give your time and skills to make an impact.</p>
+                <a class="link-green" href="#">Join Us <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="col-md-4 reveal delay-3">
+              <div class="action-card">
+                <span class="icon-bubble icon-sky"><i class="bi bi-diagram-3"></i></span>
+                <h4>Partner With Us</h4>
+                <p class="muted-copy">Collaborate with us to create greater impact.</p>
+                <a class="link-green" href="#">Contact Us <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Latest Updates</span>
+        <h2>News & Stories</h2>
+        <div class="mini-line"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 reveal">
+          <article class="news-card h-100">
+            <div class="news-img" style="background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=85');"></div>
+            <div class="news-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge">Education</span><span class="text-muted small">May 20, 2024</span>
+              </div>
+              <h3>New Learning Center Inaugurated</h3>
+              <p class="muted-copy">We are happy to announce the opening of a new learning center for children in rural areas.</p>
+              <a class="link-green" href="#">Read More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-4 reveal delay-1">
+          <article class="news-card h-100">
+            <div class="news-img" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=700&q=85');"></div>
+            <div class="news-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge" style="background:#ec5b81 !important;">Healthcare</span><span class="text-muted small">May 15, 2024</span>
+              </div>
+              <h3>Free Health Camp Conducted</h3>
+              <p class="muted-copy">Our team organized a free health camp providing medical checkups and medicines.</p>
+              <a class="link-green" href="#">Read More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-4 reveal delay-2">
+          <article class="news-card h-100">
+            <div class="news-img" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=85');"></div>
+            <div class="news-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge">Environment</span><span class="text-muted small">May 10, 2024</span>
+              </div>
+              <h3>Tree Plantation Drive</h3>
+              <p class="muted-copy">Volunteers came together for a tree plantation drive to make our environment greener.</p>
+              <a class="link-green" href="#">Read More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="#" class="btn btn-premium">View All News <i class="bi bi-chevron-right ms-2"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-0" id="gallery">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Our Partners</span>
+        <h2>Together We Achieve More</h2>
+      </div>
+      <div class="row g-0 feature-strip reveal">
+        <div class="col-6 col-md-2 partner-logo" style="color:#4285f4;">Google</div>
+        <div class="col-6 col-md-2 partner-logo" style="color:#777;">Microsoft</div>
+        <div class="col-6 col-md-2 partner-logo" style="color:#2d6fb2;">TATA</div>
+        <div class="col-6 col-md-2 partner-logo" style="color:#2296e8;">Infosys</div>
+        <div class="col-6 col-md-2 partner-logo" style="color:#087cc1;">DELL</div>
+        <div class="col-6 col-md-2 partner-logo" style="color:#615bd5;">wipro</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a class="d-flex align-items-center gap-3 mb-3" href="#">
+            <span class="brand-mark"><i class="bi bi-heart-pulse-fill"></i></span>
+            <span>
+              <span class="brand-title text-white">Hope & Help</span>
+              <span class="brand-subtitle text-white-50">Foundation</span>
+            </span>
+          </a>
+          <p class="muted-copy text-white-50">We are committed to creating a positive change in the lives of underprivileged communities.</p>
+          <div class="social mt-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#causes">Our Causes</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#donate">Get Involved</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Our Programs</h5>
+          <ul>
+            <li>Education for All</li>
+            <li>Healthcare Support</li>
+            <li>Environmental Care</li>
+            <li>Community Development</li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Support</h5>
+          <ul>
+            <li>Donate Now</li>
+            <li>Volunteer</li>
+            <li>Partner With Us</li>
+            <li>FAQs</li>
+            <li>Privacy Policy</li>
+            <li>Terms & Conditions</li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h5>Newsletter</h5>
+          <p class="small">Subscribe to our newsletter to stay updated with our latest news and stories.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="Enter your email" aria-label="Email">
+            <button class="btn btn-premium px-3" type="submit"><i class="bi bi-send"></i></button>
+          </form>
+        </div>
+      </div>
+      <hr class="border-light opacity-10 my-5">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-3 small">
+        <span>&copy; 2026 Hope & Help Foundation. All Rights Reserved.</span>
+        <!-- <span>Designed with Bootstrap 5</span> -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    reveals.forEach((item) => revealObserver.observe(item));
+
+    const counters = document.querySelectorAll(".counter");
+    let countersStarted = false;
+
+    function animateCounter(counter) {
+      const target = Number(counter.dataset.target);
+      const duration = 1500;
+      const start = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        counter.textContent = Math.floor(eased * target);
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          counter.textContent = target;
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !countersStarted) {
+          countersStarted = true;
+          counters.forEach(animateCounter);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    const impactSection = document.querySelector("#impact");
+    if (impactSection) {
+      counterObserver.observe(impactSection);
+    }
+
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        const nav = document.querySelector(".navbar-collapse");
+        if (nav && nav.classList.contains("show")) {
+          bootstrap.Collapse.getOrCreateInstance(nav).hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
